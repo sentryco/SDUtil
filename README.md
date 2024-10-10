@@ -54,7 +54,7 @@ print(results.count)
 ## Installation
 
 ```swift
-.package(url: "https://github.com/sentryco/SDUtil", branch: main)
+.package(url: "https://github.com/sentryco/SDUtil", branch: "main")
 ```
 
 ## License
