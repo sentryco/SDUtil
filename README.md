@@ -1,3 +1,5 @@
+[![Tests](https://github.com/sentryco/SDUtil/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/SDUtil/actions/workflows/Tests.yml)
+
 # SDUtil
 
 > Makes SwiftData easier to work with
