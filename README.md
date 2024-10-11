@@ -66,3 +66,4 @@ SDUtil is released under the MIT license. See [LICENSE](LICENSE) for details.
 ## TODO: 
 - [ ] Add delete item to unitTests and example code in the readme. Use Copilot to generate.
 - [ ] Improve readme.md
+- [ ] add doc in readme regarding insert order and metadata
