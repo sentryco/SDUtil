@@ -13,6 +13,7 @@ extension ModelContext {
     * - Note: ref: https://stackoverflow.com/questions/76509438/swiftdata-use-objectid-urirepresentation-to-load-coredata-object
     * - Note: ID(url: x-coredata://D9E927FF-A996-41A9-97DB-00CA5AD003EE/Change/p1)
     * - Fixme: ⚠️️ Test if obj isTemporaryID etc see legacy, elaborate?
+    * - Fixme: ⚠️️ Add example to comment? And add test to unit test?
     * - Parameters:
     *   - descriptor: A `FetchDescriptor` object that defines the criteria for fetching data from the database. It specifies the type of data to fetch and any additional constraints or filters to apply.
     * - Returns: An optional `Int64` value representing the index of the first object that matches the criteria specified in the `FetchDescriptor`. If no object matches the criteria, it returns `nil`.
@@ -36,7 +37,8 @@ extension ModelContext {
     *                that matches the criteria defined in the provided `FetchDescriptor`.
     *                It is particularly useful for scenarios where only the first object is needed,
     *                ch as for displaying a single item or initializing a process.
-    * - Note: CoreData can have generic predicates it seems
+    * - Note: `CoreData` can have generic predicates it seems
+    * - Fixme: ⚠️️ Add example to comment? And add test to unit test?
     * - Parameters:
     *   - descriptor: A `FetchDescriptor` object that defines the criteria for fetching data from the database. It specifies the type of data to fetch and any additional constraints or filters to apply.
     * - Returns: An optional object of type `T` that matches the criteria specified in the `FetchDescriptor`. If no object matches the criteria, it returns `nil`.
@@ -60,6 +62,7 @@ extension PersistentIdentifier {
     *                string that can be used for various purposes such as data retrieval or
     *                identification. It leverages JSON encoding and serialization to extract
     *                the URI representation from the identifier.
+    * - Fixme: ⚠️️ Add example to comment? And add test to unit test?
     * - Fixme: ⚠️️ Move keys to const
     * - Returns: An optional `URL` object representing the URI of the `PersistentIdentifier`. If the conversion fails or the URI representation is not found, it returns `nil`.
     */

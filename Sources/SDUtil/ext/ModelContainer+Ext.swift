@@ -23,6 +23,7 @@ extension ModelContainer {
     * - Important: Remember to turn off autoSave: https://www.hackingwithswift.com/quick-start/swiftdata/how-to-merge-two-model-contexts
     * - Note: More on bg thread swift: https://betterprogramming.pub/concurrent-programming-in-swiftdata-c9bf021a4c2d
     * - Fixme: ⚠️️ look into using actor with swift-data CRUD, might fix the need for respawning container etc: https://stackoverflow.com/questions/77253448/how-to-save-swiftdata-outside-swiftui-to-persist
+    * - Fixme: ⚠️️ add example to comment? and test to unit test?
     * - Parameter block: A closure that will be executed in a background thread with a new ModelContext instance. This block is where you would perform operations that require a separate context.
     */
    public func getBackgroundContext(block: @escaping ContextClosure) {
