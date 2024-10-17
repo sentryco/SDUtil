@@ -16,7 +16,8 @@ extension ModelContext {
     * - Parameters:
     *   - config: The configuration of the `CoreData` SQLite file.
     *   - url: The URL of the `SQLite` file. This is used to access the file and its metadata.
-    * - Returns: An optional dictionary of metadata associated with the SQLite file. If the file does not exist or there is an error, it returns `nil`.
+    * - Returns: An optional dictionary of metadata associated with the SQLite
+    *            file. If the file does not exist or there is an error, it returns `nil`.
     */
    internal func getMetaData(url: URL) throws -> [String: Any]? {
       guard let coordinator: NSPersistentStoreCoordinator = self.coordinator else { // Get the persistent store coordinator for the managed object context, and throw an error if it's `nil`
@@ -89,9 +90,12 @@ extension ModelContext {
  *                its name. It leverages Swift's Mirror reflection capabilities to iterate through
  *                the object's children and find the one matching the specified name.
  * - Parameters:
- *   - object: The object from which to access the child value. This can be any type of object that can be reflected upon using Mirror.
- *   - childName: The name of the child property to access within the object. This is used to identify the specific child value to return.
- * - Returns: An optional value of type Any, which is the value of the child property with the specified name if found, or nil if not found.
+ *   - object: The object from which to access the child value. This can be
+ *             any type of object that can be reflected upon using Mirror.
+ *   - childName: The name of the child property to access within the object.
+ *                This is used to identify the specific child value to return.
+ * - Returns: An optional value of type Any, which is the value of the child
+ *            property with the specified name if found, or nil if not found.
  */
 fileprivate func getMirrorChildValue(of object: Any, childName: String) -> Any? {
    // - Fixme: ⚠️️ add child type

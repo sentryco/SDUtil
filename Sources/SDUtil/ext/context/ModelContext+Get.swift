@@ -13,7 +13,10 @@ extension ModelContext {
     * - Note: `CoreData` kan have generic predicates it seems, see depercated util code
     * - Fixme: ⚠️️ add abstract description
     * - Parameters:
-    *   - descriptor: A `FetchDescriptor` object that defines the criteria for fetching data from the database. It specifies the type of data to fetch and any additional constraints or filters to apply.
+    *   - descriptor: A `FetchDescriptor` object that defines the criteria
+    *                 for fetching data from the database. It specifies the
+    *                 type of data to fetch and any additional constraints or
+    *                 filters to apply.
     * - Returns: An array of objects of type `T` that match the criteria specified in the descriptor.
     */
    public func readData<T>(descriptor: FetchDescriptor<T>) throws -> [T] {
@@ -34,8 +37,10 @@ extension ModelContext {
     *   let activeUserCount = try context.getCount(descriptor: userCountDescriptor)
     *   print("Active users count: \(activeUserCount)")
     *   ```
-    * - Parameter descriptor: A `FetchDescriptor` object that defines the criteria for fetching data from the database. It specifies the type of data to fetch and any additional constraints or filters to apply.
-    *  - Returns: The count of objects of type `T` that match the criteria specified in the descriptor.
+    * - Parameter descriptor: A `FetchDescriptor` object that defines the
+    *                         criteria for fetching data from the database. It specifies the type
+    *                         of data to fetch and any additional constraints or filters to apply.
+    * - Returns: The count of objects of type `T` that match the criteria specified in the descriptor.
     */
    public func getCount<T>(descriptor: FetchDescriptor<T>) throws -> Int {
       try self.fetchCount(descriptor)

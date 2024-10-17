@@ -14,7 +14,7 @@ extension ModelContext {
     * - Note: Context has to be spun up right before the item is created and the same context must be used here
     * - Note: I think we disable autoSave when we create the context, so no need to turn it off here
     * - Note: We can get context from the item
-    * - Fixme: ⚠️️ consider renaming to just insert?
+    * - Fixme: ⚠️️ Consider renaming to just insert?
     * ## Examples:
     * insert(item: LoginItem.dummyData, container: CredentialDatabase.shared.container)
     * - Parameters:

@@ -4,16 +4,21 @@
 
 > Makes SwiftData easier to work with
 
-SDUtil (SwiftData Utility) is a library designed to simplify and enhance the usage of SwiftData in Swift projects. It provides a set of extensions and utilities that streamline common tasks associated with data management in iOS and macOS applications.
+SDUtil is a library that enhances the functionality of SwiftData by providing easy access to metadata and reading the insert order of data entities. 
 
 ## Features
 
-- **Model Context Extensions**: Enhance the functionality of model contexts with additional methods for fetching, inserting, and deleting data.
+- **Easy access to metadata**: Read and write metadata to the database with simple syntax. `db.metaData["version"] = "1.0"` and `let version = db.metaData["version"]`
 
-- **Database Configuration and Management**: Tools for configuring and managing the database lifecycle, including resetting and wiping databases.
+- **Easily work with insert index**: Iterating through the database based on insert order. `getLast`, `getFirst` `getIndex` etc based on internal core-data index metadata. No record keeping needed
 
-- **Utility Functions**: General utilities to facilitate database operations such as getting database URLs or managing database files.
+- **Range support**: Fetch data based on a range of indexes. `fetch(range: 0..<10)`
 
+- **Background contexts** For async operations on the database. `getBackgroundContext`
+
+- **Utility Functions**: Reset, remove and assert that databases exists and are working. 
+
+- **Accessible CRUD operations** on the database. `insert`, `delete`, `update`, `fetch` etc
 
 ## Examples
  
@@ -59,11 +64,28 @@ print(results.count)
 .package(url: "https://github.com/sentryco/SDUtil", branch: "main")
 ```
 
-## License
-
-SDUtil is released under the MIT license. See [LICENSE](LICENSE) for details.
-
 ## TODO: 
-- [ ] Add delete item to unitTests and example code in the readme. Use Copilot to generate.
-- [ ] Improve readme.md
-- [ ] add doc in readme regarding insert order and metadata
+
+- 1. Error Handling:
+the error handling could be improved by throwing and managing errors more effectively rather than just returning empty dictionaries or ignoring the errors.
+
+- 2. Metadata Management:
+The metadata functionality could be expanded to include more robust features such as versioning, audit trails, and synchronization mechanisms, especially if the metadata is critical for the application's functionality.
+
+- 3. Testing and Coverage:
+Increase the unit test coverage for critical components, especially those handling database operations and metadata management. This could help ensure stability and catch potential issues early. The TODO item in the README.md (startLine: 71, endLine: 74) about adding delete operations to unit tests is a good start.
+    
+- 4. Documentation and Examples:
+Ensuring that all public APIs are well-documented and include examples can significantly improve the developer experience and ease of use.
+Consider adding more complex examples that showcase the full capabilities of the library, such as handling concurrent database operations or integrating with other systems.
+
+- 5. Refactoring and Code Organization:
+Make variables and function names more consistent
+
+- 6. Performance Optimization:
+Review and optimize database interactions, especially those that might be impacted by large datasets or complex queries. Profiling and benchmarking could be used to identify bottlenecks.
+
+- 7. Security Enhancements:
+Ensure that all data handling practices meet security best practices, particularly in how metadata is managed and accessed. This includes securing any sensitive information that might be stored in the metadata.
+
+ 

@@ -9,7 +9,7 @@ import SwiftData
  */
 extension DBKind {
    /**
-    * `Metadata` key / value dicitionary access
+    * `Metadata` key / value dictionary access
     * - Description: This property provides access to the metadata associated with 
     *                a `DBKind` instance. Metadata is a collection of key-value pairs
     *                that can be used to store additional information about the database
@@ -20,6 +20,13 @@ extension DBKind {
     * - Remark: Keeps track of update status for each peer by storing the latest `changeUUID` it received successfully
     * - Fixme: ⚠️️ Make it throw? this would require it being a function etc
     * - Fixme: ⚠️️ Add Abstract
+    * - Example: 
+    *   ```swift
+    *   var db = DB()
+    *   db.metaData["version"] = "1.0"
+    *   let currentVersion = db.metaData["version"]
+    *   print("Current DB version: \(currentVersion ?? "unknown")")
+    *   ```
     * - Returns: A dictionary of metadata where each key is a string and each value is also a string.
     */
    public var metaData: [String: String] {

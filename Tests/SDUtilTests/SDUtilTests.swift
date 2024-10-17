@@ -4,6 +4,9 @@ import SDUtil
 /**
  * SDUtilTests class performs unit tests for the SDUtil library focusing on database operations like insert, fetch, and reset.
  * It ensures that each core functionality adheres to expected behaviors using XCTest framework.
+ * - Fix: ⚠️️ Add meta-data test from Database repo. 
+ * - Fix: ⚠️️ Add delete test  (Add delete item to unitTests and example code in the readme. Use Copilot to generate.)
+ * - Fix: ⚠️️ Add insert order test 
  */
 final class SDUtilTests: XCTestCase {
     /**

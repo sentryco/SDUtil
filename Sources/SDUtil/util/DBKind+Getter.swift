@@ -2,6 +2,7 @@ import Foundation
 import SwiftData
 /**
  * Getter
+ * fix: ⚠️️ add highlevel description why we have these methods etc
  */
 extension DBKind {
    /**
