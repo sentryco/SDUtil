@@ -1,4 +1,5 @@
 [![Tests](https://github.com/sentryco/SDUtil/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/SDUtil/actions/workflows/Tests.yml)
+[![codebeat badge](https://codebeat.co/badges/58e29d7c-a0d9-41e8-bd88-2ad25eb2f373)](https://codebeat.co/projects/github-com-sentryco-sdutil-main)
 
 # SDUtil
 
