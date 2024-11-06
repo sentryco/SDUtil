@@ -71,5 +71,3 @@ public protocol DBKind: AnyObject {
     */
    func getContainer() throws -> ModelContainer
 }
-
-

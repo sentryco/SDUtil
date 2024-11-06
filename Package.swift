@@ -10,13 +10,13 @@ let package = Package(
     products: [
         .library(
             name: "SDUtil",
-            targets: ["SDUtil"]),
+            targets: ["SDUtil"])
     ],
     targets: [
         .target(
             name: "SDUtil"),
         .testTarget(
             name: "SDUtilTests",
-            dependencies: ["SDUtil"]),
+            dependencies: ["SDUtil"])
     ]
 )

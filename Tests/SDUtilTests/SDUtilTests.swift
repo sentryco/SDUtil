@@ -72,11 +72,11 @@ extension SDUtilTests {
       do {
          // Fetch data from the context using the descriptor
          let results = try context.readData(descriptor: descriptor)
-         
+
          // Assert that the results are not nil and contain data
          XCTAssertNotNil(results, "Results should not be nil")
-         XCTAssertTrue(results.count > 0, "Results should contain data")
-         
+         XCTAssertTrue(!results.isEmpty, "Results should contain data")
+
          // Check if the first result's password is as expected
          Swift.print("Data is correct: \(results.first?.password == "abc123" ? "✅" : "🚫")")
       } catch {
@@ -106,7 +106,7 @@ extension SDUtilTests {
          XCTAssertEqual(results.count, 0, "Database should be empty after reset")
 
          // Print the result of the reset operation: success if no entries are found.
-         Swift.print("DB was reset, db is now empty \(results.count == 0 ? "✅" : "🚫")")
+         Swift.print("DB was reset, db is now empty \(results.isEmpty ? "✅" : "🚫")")
       } catch {
          // If an error occurs during the reset process, fail the test with the error message.
          XCTFail("Resetting database failed with error: \(error)")
@@ -156,10 +156,10 @@ class Database: DBKind {
 final class User {
    /// The username for the user account.
    var userName: String
-   
+
    /// The password for the user account. Ensure this is stored securely.
    var password: String
-   
+
    /**
     Initializes a new user with specified credentials.
     
