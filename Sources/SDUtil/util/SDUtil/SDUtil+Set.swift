@@ -54,7 +54,7 @@ extension SDUtil {
     * - Parameter db: The database configuration for which the database file is to be reset.
     */
    public static func resetDB(db: DBKind) {
-      Swift.print("☢️ Reset db - url: : \(db.url)")
+      // Swift.print("☢️ Reset db - url: : \(db.url)")
       // Attempts to retrieve the container for the database configuration and wipes all data for the models associated with the configuration
       (try? db.getContainer())?.wipe(models: db.getModels())
        // Deletes all data from the database container
