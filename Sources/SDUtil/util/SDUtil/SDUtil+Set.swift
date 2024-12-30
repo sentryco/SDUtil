@@ -61,7 +61,9 @@ extension SDUtil {
       // Iterates through each persistent store associated with the context's coordinator
       // This part wipes the index etc, also db file I think ishh, altho its stil there for some reason
       guard let coordinator = context.coordinator else {
-         throw NSError.init(domain: "coordinator is nil", code: 0)
+//         throw NSError.init(domain: "resetDB() coordinator is nil", code: 0)
+         // Swift.print("resetDB() coordinator is nil")
+         return
       }
       try coordinator.persistentStores.forEach { store in
          // Ensures a URL is available for the current store

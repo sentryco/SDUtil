@@ -94,7 +94,7 @@ extension SDUtilTests {
 
       do {
          // Attempt to reset the database to a clean state.
-         SDUtil.resetDB(db: db) // The 'try' keyword is commented out; ensure error handling is correct.
+         try SDUtil.resetDB(db: db) // The 'try' keyword is commented out; ensure error handling is correct.
 
          // Obtain a context from the database to verify the reset operation.
          let context = try db.getContext()
@@ -109,6 +109,7 @@ extension SDUtilTests {
          Swift.print("DB was reset, db is now empty \(results.isEmpty ? "✅" : "🚫")")
       } catch {
          // If an error occurs during the reset process, fail the test with the error message.
+         Swift.print("🚫 error.localizedDescription:  \(error.localizedDescription)")
          XCTFail("Resetting database failed with error: \(error)")
       }
    }
