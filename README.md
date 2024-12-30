@@ -65,7 +65,7 @@ print(results.count)
 .package(url: "https://github.com/sentryco/SDUtil", branch: "main")
 ```
 
-## TODO: 
+## Imporovments: 
 
 - 1. Error Handling:
 the error handling could be improved by throwing and managing errors more effectively rather than just returning empty dictionaries or ignoring the errors.
@@ -90,3 +90,5 @@ Review and optimize database interactions, especially those that might be impact
 Ensure that all data handling practices meet security best practices, particularly in how metadata is managed and accessed. This includes securing any sensitive information that might be stored in the metadata.
 
  
+### Todo: 
+- Add MetaDataError

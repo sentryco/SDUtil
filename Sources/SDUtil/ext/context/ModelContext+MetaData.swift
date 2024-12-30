@@ -34,7 +34,7 @@ extension ModelContext {
     *                It is designed to modify the metadata stored within the file,
     *                which can be useful for various purposes such as data analysis or debugging.
     * - Note: Alt name: `insertMetaData`
-    * - Fixme: ⚠️️ add MetaDataError 👈
+    * - Fixme: ⚠️️⚠️️ add MetaDataError 👈👈
     * - Parameters:
     *   - metadata: Dict to set as metadata in `CoreData`
     *   - config: Config of `CoreData` `SQLite` file

@@ -15,15 +15,13 @@ extension SDUtil {
     * - Note: This method does not throw an error if the file does not exist or if the removal fails. It is recommended to modify this method to throw an error in such cases.
     * - Fixme: ⚠️️ Use migrationSchema if it's in production
     * - Fixme: ⚠️️ Move to URL scope or? add reasoning etc
-    * - Fixme: ⚠️️ Make this throw 👈
     * - Parameter url: The URL of the database file to be removed.
     * - Returns: This method does not return a value. It modifies the file system by removing the database file if it exists.
     */
-   public static func removeDB(url: URL) {
+   public static func removeDB(url: URL) throws {
       // Check if the default database exists at the given URL
-      if assertDefaultDBExists(url: url) {
-         try? FileManager.default.removeItem(at: url) // This will reset the database every time
-      }
+      guard assertDefaultDBExists(url: url) else { Swift.print("SDUtil.removeDB - url does not exist: \(url)"); return }
+      try FileManager.default.removeItem(at: url) // This will reset the database every time
    }
    /**
     * Asserts the existence of a database file at the specified URL.
@@ -49,25 +47,27 @@ extension SDUtil {
     *                in the database configuration and then deletes the database file itself.
     * - Note: Alternative names for this: `reset`, `destroy`, `nuke`, `remove`, `obliterate`, `zap`
     * - Remark: Seems like this does not work if we use getContainer in the code, it works if we use the lazy container
-    * - Fixme: ⚠️️ Make it throw 👈
     * - Fixme: ⚠️️ Do some more research into wiping dbs in swiftdata etc
     * - Parameter db: The database configuration for which the database file is to be reset.
     */
-   public static func resetDB(db: DBKind) {
+   public static func resetDB(db: DBKind) throws {
       // Swift.print("☢️ Reset db - url: : \(db.url)")
       // Attempts to retrieve the container for the database configuration and wipes all data for the models associated with the configuration
-      (try? db.getContainer())?.wipe(models: db.getModels())
+      try db.getContainer().wipe(models: db.getModels())
        // Deletes all data from the database container
-      (try? db.getContainer())?.deleteAllData() // ref: https://useyourloaf.com/blog/swiftdata-deleting-data/
+      try db.getContainer().deleteAllData() // ref: https://useyourloaf.com/blog/swiftdata-deleting-data/
        // Attempts to retrieve the context from the database
-      let context = try? db.getContext()
+      let context = try db.getContext()
       // Iterates through each persistent store associated with the context's coordinator
       // This part wipes the index etc, also db file I think ishh, altho its stil there for some reason
-      context?.coordinator?.persistentStores.forEach { store in
+      guard let coordinator = context.coordinator else {
+         throw NSError.init(domain: "coordinator is nil", code: 0)
+      }
+      try coordinator.persistentStores.forEach { store in
          // Ensures a URL is available for the current store
          guard let url = store.url else { Swift.print("Err ⚠️️ no url"); return }
          // Attempts to destroy the persistent store at the specified URL using SQLite type
-         try? context?.coordinator?.destroyPersistentStore(at: url, type: .sqlite)
+         try coordinator.destroyPersistentStore(at: url, type: .sqlite)
       }
    }
    /**
@@ -78,8 +78,8 @@ extension SDUtil {
     * - Note: Alt name: `zapDBs`
     * - Parameter dbs: An array of database configurations for which the database files are to be reset.
     */
-   public static func resetDBs(dbs: DBKinds) {
+   public static func resetDBs(dbs: DBKinds) throws {
       // Iterates through each database configuration in the array and calls the resetDB method on each configuration
-      dbs.forEach { resetDB(db: $0) }
+      try dbs.forEach { try resetDB(db: $0) }
    }
 }
